@@ -160,6 +160,18 @@ npm run lint   # Run linter
 
 MIT License - See [LICENSE](LICENSE) file
 
+## 👤 Author
+
+**Harsh Yadav**
+
+- GitHub: [@harshsksh](https://github.com/harshsksh)
+- LinkedIn: [Harsh Yadav](https://www.linkedin.com/in/harsh-yadav-218370272/)
+- Email: hr392002@gmail.com
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
 ---
 
-**Built with ❤️ using Next.js and TypeScript**
+**Built using Next.js and TypeScript**
