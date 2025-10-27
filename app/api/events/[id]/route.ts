@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { z } from 'zod';
 import dbConnect from '@/lib/mongodb';
-import Event from '@/models/Event';
+import Event, { IEvent } from '@/models/Event';
 import { authOptions } from '@/lib/auth';
 
 const eventUpdateSchema = z.object({
@@ -119,17 +119,24 @@ export async function PUT(
       { new: true, runValidators: true }
     ).populate('organizer', 'name email');
 
+    if (!updatedEvent) {
+      return NextResponse.json(
+        { error: 'Event not found' },
+        { status: 404 }
+      );
+    }
+
     return NextResponse.json({
       message: 'Event updated successfully',
       event: {
-        id: updatedEvent!._id.toString(),
-        title: updatedEvent!.title,
-        description: updatedEvent!.description,
-        date: updatedEvent!.date,
-        time: updatedEvent!.time,
-        location: updatedEvent!.location,
-        capacity: updatedEvent!.capacity,
-        isPublic: updatedEvent!.isPublic,
+        id: updatedEvent._id.toString(),
+        title: updatedEvent.title,
+        description: updatedEvent.description,
+        date: updatedEvent.date,
+        time: updatedEvent.time,
+        location: updatedEvent.location,
+        capacity: updatedEvent.capacity,
+        isPublic: updatedEvent.isPublic,
       },
     });
   } catch (error) {
