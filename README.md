@@ -48,6 +48,7 @@ Create `.env.local` file in the root directory:
 MONGODB_URI=mongodb://localhost:27017/event-management
 
 # NextAuth Configuration
+# For Vercel: Leave NEXTAUTH_URL empty or use: https://your-app.vercel.app
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your-super-secret-key-32-chars-minimum
 
